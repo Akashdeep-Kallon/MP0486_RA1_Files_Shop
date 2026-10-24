@@ -200,6 +200,12 @@ public class Shop {
 	 */
 	private void readInventory() {
 		setInventory(dao.getInventory());
+
+		/**
+		 * for (Product product : dao.getInventory()) {
+		 * System.out.println(product.toString()); 
+		 * }
+		 */
 	}
 
 	/**

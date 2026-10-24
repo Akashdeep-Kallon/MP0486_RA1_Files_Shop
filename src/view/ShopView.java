@@ -190,7 +190,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener {
 	public void openExportInventoryView() {
 		// create a dialog Box
 		if (this.shop.writeInventory()) {
-			JOptionPane.showMessageDialog(null, "Inventorio exportado correctamente", "Informacion",
+			JOptionPane.showMessageDialog(null, "Inventorio exportado correctamente", "Información",
 					JOptionPane.INFORMATION_MESSAGE);
 		} else {
 			JOptionPane.showMessageDialog(null, "Error exportando el inventario", "Error",

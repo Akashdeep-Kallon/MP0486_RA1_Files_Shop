@@ -110,7 +110,12 @@ public class DaoImplFile implements Dao {
 		LocalDate myObj = LocalDate.now();
 		String fileName = "inventory_" + myObj.toString() + ".txt";
 		String patch = System.getProperty("user.dir") + File.separator + "files" + File.separator + fileName;
-
+		
+		/**
+		// Error export
+		patch = "";
+		*/
+		
 		// locate file, path and name
 		File f = new File(patch);
 
