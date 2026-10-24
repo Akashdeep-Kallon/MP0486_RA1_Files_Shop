@@ -1,3 +1,0 @@
-1;Product:Manzana,10;;
-2;Product:Fresa,20;;
-Total number of products:3;

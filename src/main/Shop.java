@@ -30,11 +30,12 @@ public class Shop {
 	private ArrayList<Sale> sales;
 	private int numberSales;
 
-	private Dao dao = new DaoImplFile();
+	private Dao dao;
 
 	final static double TAX_RATE = 1.04;
 
 	public Shop() {
+		dao = new DaoImplFile();
 		inventory = new ArrayList<Product>();
 		sales = new ArrayList<Sale>();
 	}

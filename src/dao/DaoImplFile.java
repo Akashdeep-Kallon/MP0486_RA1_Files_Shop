@@ -39,7 +39,8 @@ public class DaoImplFile implements Dao {
 	public ArrayList<Product> getInventory() {
 		// locate file, path and name
 		ArrayList<Product> inventory = new ArrayList<Product>();
-		File f = new File(System.getProperty("user.dir") + File.separator + "files/inputInventory.txt");
+		String patch = System.getProperty("user.dir") + File.separator + "files/inputInventory.txt";
+		File f = new File(patch);
 
 		try {
 			// wrap in proper classes
@@ -108,9 +109,10 @@ public class DaoImplFile implements Dao {
 	public boolean writeInventory(ArrayList<Product> inventory) {
 		LocalDate myObj = LocalDate.now();
 		String fileName = "inventory_" + myObj.toString() + ".txt";
+		String patch = System.getProperty("user.dir") + File.separator + "files" + File.separator + fileName;
 
 		// locate file, path and name
-		File f = new File(System.getProperty("user.dir") + File.separator + "files" + File.separator + fileName);
+		File f = new File(patch);
 
 		try {
 			// wrap in proper classes
@@ -126,10 +128,10 @@ public class DaoImplFile implements Dao {
 				// build products line
 
 				StringBuilder productLine = new StringBuilder();
-				productLine.append(product.getName() + "," + product.getStock() + ";");
+				productLine.append(
+						counterProduct + ";Product:" + product.getName() + ";Stock:" + product.getStock() + ";");
 
-				StringBuilder firstLine = new StringBuilder(counterProduct + ";" + "Product:" + productLine + ";");
-				pw.write(firstLine.toString());
+				pw.write(productLine.toString());
 				fw.write("\n");
 
 				// increment counter sales
@@ -137,14 +139,14 @@ public class DaoImplFile implements Dao {
 			}
 
 			// format last line TO BE -> Total number of products:2;
-			StringBuilder lastLine = new StringBuilder("Total number of products:" + counterProduct + ";");
+			StringBuilder lastLine = new StringBuilder("Total number of products:" + inventory.size() + ";");
 			pw.write(lastLine.toString());
 			fw.write("\n");
 
 			// close files
 			pw.close();
 			fw.close();
-			
+
 			return true;
 
 		} catch (IOException e) {
